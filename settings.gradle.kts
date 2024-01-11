@@ -1,5 +1,16 @@
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
 }
-rootProject.name = "marketplace-ilyankin-otus-kotlin-20233121"
 
+pluginManagement {
+    plugins {
+        val kotlinVersion: String by settings
+        kotlin("jvm") version kotlinVersion
+        val foojayResolverConvention: String by settings
+        id("org.gradle.toolchains.foojay-resolver-convention") version foojayResolverConvention
+    }
+}
+
+rootProject.name = "marketplace-ilyankin-otus-kotlin-20233121"
