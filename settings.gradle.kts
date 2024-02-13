@@ -6,10 +6,7 @@ dependencyResolutionManagement {
 
 pluginManagement {
     plugins {
-        val kotlinVersion: String by settings
-        kotlin("jvm") version kotlinVersion
-        val foojayResolverConvention: String by settings
-        id("org.gradle.toolchains.foojay-resolver-convention") version foojayResolverConvention
+        id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
     }
 }
 
