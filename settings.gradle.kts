@@ -14,4 +14,3 @@ pluginManagement {
 }
 
 rootProject.name = "marketplace-ilyankin-otus-kotlin-20233121"
-include("m1l1-first")
