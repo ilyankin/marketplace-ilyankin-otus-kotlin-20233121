@@ -7,6 +7,8 @@ import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.jvm.toolchain.JavaLanguageVersion
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.the
+import org.jetbrains.kotlin.gradle.DeprecatedTargetPresetApi
+import org.jetbrains.kotlin.gradle.InternalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
@@ -23,7 +25,7 @@ internal class BuildPluginMultiplatform : Plugin<Project> {
                 configureTargets(this@with)
                 sourceSets.configureEach {
                     languageSettings.apply {
-                        languageVersion = "1.9"
+                        languageVersion = "1.9.22"
                         progressiveMode = true
                         optIn("kotlin.time.ExperimentalTime")
                     }
@@ -33,18 +35,19 @@ internal class BuildPluginMultiplatform : Plugin<Project> {
     }
 }
 
+@OptIn(DeprecatedTargetPresetApi::class, InternalKotlinGradlePluginApi::class)
 @Suppress("LongMethod", "MagicNumber")
 private fun KotlinMultiplatformExtension.configureTargets(project: Project) {
     val libs = project.the<LibrariesForLibs>()
     targets {
         jvmToolchain {
-            languageVersion.set(JavaLanguageVersion.of(libs.versions.jvm.language.get()))
+            languageVersion.set(JavaLanguageVersion.of(libs.versions.jvm.target.get()))
         }
 
         jvm {
             compilations.configureEach {
                 compilerOptions.configure {
-                    jvmTarget.set(JvmTarget.valueOf("JVM_${libs.versions.jvm.compiler.get()}"))
+                    jvmTarget.set(JvmTarget.valueOf("JVM_${libs.versions.jvm.target.get()}"))
                 }
             }
         }
@@ -53,7 +56,7 @@ private fun KotlinMultiplatformExtension.configureTargets(project: Project) {
         macosX64()
     }
     project.tasks.withType(JavaCompile::class.java) {
-        sourceCompatibility = libs.versions.jvm.language.get()
-        targetCompatibility = libs.versions.jvm.compiler.get()
+        sourceCompatibility = libs.versions.jvm.target.get()
+        targetCompatibility = libs.versions.jvm.target.get()
     }
 }

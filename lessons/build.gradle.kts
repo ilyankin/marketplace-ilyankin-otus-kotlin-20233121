@@ -1,10 +1,9 @@
 plugins {
     alias(libs.plugins.kotlin.jvm) apply false
-    alias(libs.plugins.kotlin.multiplatform) apply false
 }
 
-group = "ing.ilyankin"
-version = "0.0.1"
+group = "ing.ilyankin.marketplace"
+version = "1.0.0"
 
 subprojects {
     group = rootProject.group
