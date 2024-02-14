@@ -3,6 +3,7 @@ rootProject.name = "build-plugin"
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
+        gradlePluginPortal()
     }
 
     versionCatalogs {

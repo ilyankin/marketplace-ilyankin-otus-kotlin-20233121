@@ -1,6 +1,10 @@
 rootProject.name = "ok-marketplace-be"
 
 dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
     versionCatalogs {
         create("libs") {
             from(files("../gradle/libs.versions.toml"))
@@ -13,7 +17,6 @@ pluginManagement {
     plugins {
         id("build-jvm") apply false
         id("build-kmp") apply false
-        id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
     }
     repositories {
         mavenCentral()
