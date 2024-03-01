@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
 }
 
-group = "ing.ilyankin.marketplace"
+group = "ing.ilyankin.pictureworld"
 version = "0.0.1"
 
 subprojects {

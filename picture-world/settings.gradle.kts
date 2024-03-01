@@ -1,4 +1,4 @@
-rootProject.name = "my-project-be"
+rootProject.name = "picture-world"
 
 dependencyResolutionManagement {
     repositories {
