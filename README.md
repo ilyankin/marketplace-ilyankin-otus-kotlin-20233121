@@ -5,6 +5,6 @@
 
 ## Подпроекты
 
-1. [ok-marketplace-be](ok-marketplace-be) и [my-project-be](my-project-be) - Проектные модули
+1. [ok-marketplace-be](ok-marketplace-be) и [picture-world](picture-world) - Проектные модули
 2. [lessons](lessons) - Учебные модули 
 3. [plugins](build-plugin) - Gradle плагины для конфигурации проектов
