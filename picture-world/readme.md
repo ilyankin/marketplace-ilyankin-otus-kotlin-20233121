@@ -16,5 +16,6 @@
 ## Страница с информацией о комиксе
 ![comics-info-layout](comics-info-layout.drawio.svg)
 
-## Страница просмотра главы комикса
+## Страница просмотра главы комикса 
+
 ![comics-view-layout.svg](comics-view-layout.svg)
