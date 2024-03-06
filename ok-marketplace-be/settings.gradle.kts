@@ -24,4 +24,3 @@ pluginManagement {
     }
 }
 
-include(":ok-marketplace-tmp")

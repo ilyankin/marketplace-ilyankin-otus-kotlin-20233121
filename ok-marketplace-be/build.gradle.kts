@@ -12,10 +12,10 @@ subprojects {
 }
 
 tasks {
-    arrayOf("build", "clean", "check").forEach { tsk ->
-        create(tsk) {
+    arrayOf("build", "clean", "check").forEach { task ->
+        create(task) {
             group = "build"
-            dependsOn(subprojects.map { it.getTasksByName(tsk, false) })
+            dependsOn(subprojects.map { project -> project.getTasksByName(task, false) })
         }
     }
 }
